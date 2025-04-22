@@ -39,14 +39,14 @@ class signupActivity : AppCompatActivity() {
             if (password == confirmPassword) {
                 auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this) { task ->
                         if (task.isSuccessful) {
-                            Toast.makeText(this, "Account created", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, getString(R.string.signupyay), Toast.LENGTH_SHORT).show()
                         } else {
-                            Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, getString(R.string.signupnay), Toast.LENGTH_SHORT).show()
                         }
                     }
             }
             else {
-                Toast.makeText(this, "Passwords don't match", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, getString(R.string.pwd), Toast.LENGTH_SHORT).show()
             }
 
         }

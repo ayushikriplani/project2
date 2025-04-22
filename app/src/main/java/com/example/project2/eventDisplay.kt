@@ -1,9 +1,7 @@
 package com.example.project2
 
 import android.os.Bundle
-import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -16,28 +14,35 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class eventDisplay : AppCompatActivity() {
-    private val APIKey = "ZCuErisFHAXcT7d1e3mdsSWTUSxibUP1"
+    val APIKey = "kONZlxcGmOsPJfTCm71yisQY5wjhkVfz"
     private lateinit var recyclerView: RecyclerView
-    private var sites: List<event> = emptyList()
-    private val Manager = eventDisplayManager()
-    private var Adapter = eventDisplayAdapter(sites)
+    private lateinit var TextView : TextView
+    private lateinit var adapter: eventDisplayAdapter
+    private val manager = eventDisplayManager()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_event_display)
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        TextView = findViewById(R.id.newevent)
         recyclerView = findViewById(R.id.recyc)
+        adapter = eventDisplayAdapter(emptyList())
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = adapter
+        //defaults to zipcode 10001 if no zipcode is provided
+        val zip = intent.getStringExtra("ZIPCODE") ?: "10001"
+
         lifecycleScope.launch {
-            sites = withContext(IO) {
-                Manager.retrieveEveryEvent(APIKey)
+            val events = withContext(IO) {
+                manager.retrieveEveryEvent(APIKey, zip)
             }
-            recyclerView.layoutManager = LinearLayoutManager(this@eventDisplay)
-            //type casting error and so used many android blogs like the one I am linking: https://kotlinlang.org/docs/typecasts.html#safe-nullable-cast-operator
-            (recyclerView.adapter as eventDisplayAdapter).updateDataNow(sites)
+            adapter.updateDataNow(events)
         }
     }
 }

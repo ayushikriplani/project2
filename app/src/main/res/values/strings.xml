@@ -1,3 +1,22 @@
 <resources>
-    <string name="app_name">Project2</string>
+    <string name="appname">Event Explorer</string>
+    <string name="maintitle">Event Explorer!</string>
+    <string name="startbutton">Start</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="confirmpassword">Confirm Password</string>
+    <string name="signup">Sign Up</string>
+    <string name="login">Log In</string>
+    <string name="createaccount">Create Account</string>
+    <string name="zipcode">Enter Zipcode</string>
+    <string name="enter">Enter</string>
+    <string name="etitle">New Events</string>
+    <string name="ftitle">Favorite List</string>
+    <string name = "Add"> "Add to Favorites!"</string>
+    <string name = "loginyay"> "Login Successful !"</string>
+    <string name = "loginnay"> "Login Failed!"</string>
+    <string name = "signupyay"> "Sign Up Successful!"</string>
+    <string name = "signupnay"> "Sign Up Failed!"</string>
+    <string name = "pwd"> "Passwords don't match"</string>
+
 </resources>

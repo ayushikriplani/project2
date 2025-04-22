@@ -5,33 +5,36 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".eventDisplay">
+    tools:context=".Favorites">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyc"
-        android:layout_width="409dp"
-        android:layout_height="729dp"
-        android:layout_marginTop="132dp"
+        android:id="@+id/favRecyclerView"
+        android:layout_width="408dp"
+        android:layout_height="597dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/favTextView"
         tools:listitem="@layout/recyclerview" />
 
     <TextView
-        android:id="@+id/newevent"
+        android:id="@+id/favTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="153dp"
         android:layout_marginTop="45dp"
         android:layout_marginEnd="181dp"
         android:fontFamily="cursive"
-        android:text="@string/etitle"
+        android:text="@string/ftitle"
         android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@+id/recyc"
+        app:layout_constraintBottom_toTopOf="@+id/favRecyclerView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.5" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

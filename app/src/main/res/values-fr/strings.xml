@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="appname">Explorateur dÉvénements</string>
+    <string name="maintitle">Explorateur dÉvénements !</string>
+    <string name="startbutton">Démarrer</string>
+    <string name="email">E-mail</string>
+    <string name="password">Mot de passe</string>
+    <string name="confirmpassword">Confirmer le mot de passe</string>
+    <string name="signup">Sinscrire</string>
+    <string name="login">Se connecter</string>
+    <string name="createaccount">Créer un compte</string>
+    <string name="zipcode">Entrer le code postal</string>
+    <string name="enter">Entrer</string>
+    <string name="etitle">Nouveaux Événements</string>
+    <string name="ftitle">Liste des Favoris</string>
+    <string name="Add">Ajouter aux favoris !</string>
+    <string name="loginyay">Connexion réussie !</string>
+    <string name="loginnay">Échec de la connexion !</string>
+    <string name="signupyay">Inscription réussie !</string>
+    <string name="signupnay">Échec de linscription!</string>
+    <string name="pwd">Les mots de passe ne correspondent pas</string>
+</resources>

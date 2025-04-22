@@ -36,13 +36,30 @@
 
         <TextView
             android:id="@+id/name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
+            android:layout_width="165dp"
+            android:layout_height="78dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="13dp"
+            android:layout_marginBottom="15dp"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Title"
-            app:layout_constraintStart_toEndOf="@id/image"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnFavorite"
+            app:layout_constraintStart_toEndOf="@+id/image"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
             tools:text="Headline" />
+
+        <ImageButton
+            android:id="@+id/btnFavorite"
+            android:layout_width="91dp"
+            android:layout_height="76dp"
+            android:layout_marginStart="13dp"
+            android:layout_marginEnd="9dp"
+            android:src="@drawable/hearts"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/name"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

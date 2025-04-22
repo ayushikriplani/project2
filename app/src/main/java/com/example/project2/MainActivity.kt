@@ -1,5 +1,6 @@
 package com.example.project2
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
@@ -31,17 +32,23 @@ class MainActivity : AppCompatActivity() {
         password = findViewById(R.id.passwordEditText)
         signupButton = findViewById(R.id.signupButton)
         loginButton = findViewById(R.id.loginButton)
-
+        val sharedPref = getSharedPreferences("LoginPrefs", MODE_PRIVATE)
+        email.setText(sharedPref.getString("email", ""))
+        password.setText(sharedPref.getString("password", ""))
         loginButton.setOnClickListener {
             val email = email.text.toString()
             val password = password.text.toString()
             auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
-                        Toast.makeText(this, "Login successful!", Toast.LENGTH_SHORT).show()
-                        val intent = Intent(this@MainActivity, eventDisplay::class.java)
+                        val sharedPrefs = getSharedPreferences("LoginPrefs", Context.MODE_PRIVATE)
+                        val editor = sharedPrefs.edit()
+                        editor.putString("email", email)
+                        editor.apply()
+                        Toast.makeText(this, getString(R.string.loginyay), Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this@MainActivity, decide::class.java)
                         startActivity(intent)
                     } else {
-                        Toast.makeText(this, "Login failed", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, getString(R.string.loginnay), Toast.LENGTH_SHORT).show()
                     }
                 }
         }
